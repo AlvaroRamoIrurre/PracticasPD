@@ -29,28 +29,33 @@ void loop() {
 
 ```c++
 
-#include <Arduino.h>
+#include <Adafruit_NeoPixel.h>
 
-#define LED_BUILTIN 23
-#define DELAY 1000 //ms
+
+#define LED_PIN 48    // Cambia a 8, 13 o el pin del LED RGB
+#define NUM_LEDS 1
+
+
+Adafruit_NeoPixel led(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 
 void setup() {
-Serial.begin(115200); 
-pinMode(LED_BUILTIN, OUTPUT);
-
+ led.begin();
+ led.setBrightness(50);  // Ajusta el brillo del LED
 }
 
+
 void loop() {
-    
-digitalWrite(LED_BUILTIN, HIGH);
+ led.setPixelColor(0, led.Color(255, 0, 0));  // LED en rojo
+ led.show();
+ delay(500);
 
-Serial.println("ON"); 
-delay(DELAY);
-digitalWrite(LED_BUILTIN, LOW);
 
-Serial.println("OFF"); 
-delay(DELAY);
+ led.setPixelColor(0, led.Color(0, 0, 0));  // LED en verde
+ led.show();
+ delay(500);
+
+
 }
 
 ```
