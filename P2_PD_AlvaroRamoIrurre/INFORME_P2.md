@@ -1,4 +1,5 @@
 # Práctica 2 PD
+ALVARO RAMO IRURRE (COMPAÑERO : ELOI BELMONTE)
 
 En esta práctica, se explora el uso de interrupciones en microcontroladores para gestionar eventos de manera eficiente sin depender del polling. Se implementan interrupciones por GPIO y por temporizador en un ESP32.
 
