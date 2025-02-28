@@ -1,7 +1,6 @@
 
-# Practica 1 PD ALVARO RAMO IRURRE (COMPAÑERO : ELOI BELMONTE)
-
-## Introducción de la práctica 
+# Practica 1 PD 
+ALVARO RAMO IRURRE (COMPAÑERO : ELOI BELMONTE)
 
 En esta práctica, programaremos un ESP32 para generar el parpadeo periódico de un LED.
 
