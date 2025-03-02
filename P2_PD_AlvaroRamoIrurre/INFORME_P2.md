@@ -125,3 +125,13 @@ An interrupt as occurred. Total number: 1
 An interrupt as occurred. Total number: 2
 An interrupt as occurred. Total number: 3
 ```
+
+# Enlaces de videos grabados en el laboratorio
+
+Leds : 
+
+https://drive.google.com/file/d/1zJCvI_jIi_EYEJcF2_KElV475KUTUhWE/view?usp=drive_link
+
+Botón : 
+
+https://drive.google.com/file/d/1k4wfObSyOlgVFfhOBqb7fDw3FmoxkuIg/view?usp=drive_link
