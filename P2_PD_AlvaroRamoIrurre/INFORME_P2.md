@@ -126,7 +126,7 @@ An interrupt as occurred. Total number: 2
 An interrupt as occurred. Total number: 3
 ```
 
-# 2.-Ejercicio extra para subir nota
+# 3.-Ejercicio extra para subir nota
 
 ```c++
 #include <Arduino.h>
