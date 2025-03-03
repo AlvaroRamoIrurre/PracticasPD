@@ -126,6 +126,58 @@ An interrupt as occurred. Total number: 2
 An interrupt as occurred. Total number: 3
 ```
 
+# 2.-Ejercicio extra para subir nota
+
+```c++
+#include <Arduino.h>
+
+const int ledPin = 2;
+const int buttonUp = 4;
+const int buttonDown = 5;
+hw_timer_t *timer = NULL;
+volatile int blinkInterval = 500; // Intervalo de parpadeo inicial en ms
+portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
+
+void IRAM_ATTR onTimer() {
+  digitalWrite(ledPin, !digitalRead(ledPin));
+}
+
+void IRAM_ATTR isrUp() {
+  portENTER_CRITICAL_ISR(&timerMux);
+  blinkInterval = max(100, blinkInterval - 100);
+  timerAlarmWrite(timer, blinkInterval * 1000, true);
+  portEXIT_CRITICAL_ISR(&timerMux);
+}
+
+void IRAM_ATTR isrDown() {
+  portENTER_CRITICAL_ISR(&timerMux);
+  blinkInterval = min(2000, blinkInterval + 100);
+  timerAlarmWrite(timer, blinkInterval * 1000, true);
+  portEXIT_CRITICAL_ISR(&timerMux);
+}
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(ledPin, OUTPUT);
+  pinMode(buttonUp, INPUT_PULLUP);
+  pinMode(buttonDown, INPUT_PULLUP);
+  attachInterrupt(buttonUp, isrUp, FALLING);
+  attachInterrupt(buttonDown, isrDown, FALLING);
+  timer = timerBegin(0, 80, true);
+  timerAttachInterrupt(timer, &onTimer, true);
+  timerAlarmWrite(timer, blinkInterval * 1000, true);
+  timerAlarmEnable(timer);
+}
+
+void loop() {
+  Serial.printf("Current blink interval: %d ms\n", blinkInterval);
+  delay(1000);
+}
+```
+### Funcionamiento y salidas:
+
+Este código permite controlar la frecuencia de parpadeo de un LED en un ESP32 mediante dos pulsadores. Uno aumenta la velocidad y el otro la reduce. La frecuencia de parpadeo está controlada por un temporizador de hardware, lo que permite un control preciso sin interferencias en el bucle principal.
+
 # Enlaces de videos grabados en el laboratorio
 
 Leds : 
