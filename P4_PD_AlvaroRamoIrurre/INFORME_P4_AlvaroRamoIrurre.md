@@ -56,6 +56,11 @@ El output por el terminal es el siguiente :
    - Això és la tasca principal (loop)
    - Això és una altra tasca
 ```
+### Fotos y vídeos del ejercicio : 
+
+https://drive.google.com/file/d/1zhchI7dclPk9HGiP9yRXbzS2POQ5s_nb/view?usp=drive_link
+
+https://drive.google.com/file/d/1eegE6llPcSN5SoNt5cypAsA9-cbonc6B/view?usp=drive_link
 
 ## Ej 2 - Semáforo
 ```c++
